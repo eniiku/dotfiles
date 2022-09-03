@@ -1,21 +1,14 @@
 #
 # wm independent hotkeys
+#
 
-# Launch Tlauncher
-ctrl + shift + t
-	~/scripts/launchTlauncher.sh
+# program launcher
+super + @space
+	rofi -show drun	
 
 # ranger
-ctrl + alt + r 
-	ranger
-
-
-# brightness keys
-XF86MonBrightnessUp
-	changebrightness up
-
-XF86MonBrightnessDown
-	changebrightness down
+ctrl + shift + r 
+	ranger	
 
 # notifications
 ctrl + space
@@ -36,10 +29,6 @@ ctrl + alt + x
 # terminal emulator
 super + Return
 	kitty	
-
-# program launcher
-super + @space
-	rofi -show drun	
 
 # make sxhkd reload its configuration files:
 super + Escape

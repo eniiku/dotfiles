@@ -1,8 +1,8 @@
 # Content for global ~/.gitconfig file.
 
 [user]
-	name = "eniiku" 
-	email = "...@gmail.com"
+	name = eniiku 
+	email = ...@gmail.com
 
 [core]
 	editor = "nvim"

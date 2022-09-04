@@ -7,8 +7,8 @@ super + @space
 	rofi -show drun	
 
 # ranger
-ctrl + shift + r 
-	ranger	
+super + r 
+	kitty ranger	
 
 # notifications
 ctrl + space

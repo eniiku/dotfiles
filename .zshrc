@@ -106,4 +106,9 @@ alias ohmyzsh="nvim ~/.oh-my-zsh"
 alias paci="sudo pacman -S"
 alias pacu="sudo pacman -Rcns"
 
+# Fetch Master 6000
 fm6000 -c "random" -r
+
+# Blender
+PATH="~/blender/:$PATH"
+

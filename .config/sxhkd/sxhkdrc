@@ -7,11 +7,11 @@ super + @space
 	rofi -show drun	
 
 # ranger
-ctrl + r 
+super + r 
 	kitty ranger	
 
 # blender
-ctrl + b
+super + b
 	blender
 
 # notifications

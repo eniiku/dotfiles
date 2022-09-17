@@ -9,6 +9,23 @@ ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" "
 ARCH_CONFIG_DOTFILES=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "dunst" "kitty" "neofetch" "rofi")
 ARCH_LOCAL_DOTFILES=("bin")
 
+function check_internet_connection() {
+	ping -c 3 google.com
+	
+	if ["$?" -eq "0"]
+	then
+		echo "Confirmed Internet access\!"
+		echo "Proceeding with configuration..."
+		exit 0
+	else
+		echo "You don't seem to have a stable interet connection"
+		echo "Exiting configuration..."
+		exit 1
+	fi
+}
+
+check_internet_connection
+
 if [ -e /bin/apt ]
 then
 	echo "Setting up config files for Debain-Based Distros"

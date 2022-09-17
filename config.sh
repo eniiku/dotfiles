@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# Debian-Based Distros
+
+REQUIRED_PACKAGES=("nodejs" "nvim")
+REQUIRED_NODE_PACKAGES=("yarn")
+
+if [ -e /bin/apt ]
+then
+	echo "Setting up config files for Debain-Based Distros"
+	#for FILES in "${REQUIRED_PACKAGES[@]}"
+	
+elif [ -e /bin/pacman.d ]
+then 
+	echo "Setting up config files for Arch-Based Distros"
+fi
+
 # Install necessary dependecies
 
 #(pacman -S base base-devel git wget htop bspwm 

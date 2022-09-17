@@ -5,6 +5,10 @@
 REQUIRED_PACKAGES=("nodejs" "nvim")
 REQUIRED_NODE_PACKAGES=("yarn")
 
+ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
+ARCH_CONFIG_DOTFILES=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "dunst" "kitty" "neofetch" "rofi")
+ARCH_LOCAL_DOTFILES=("bin")
+
 if [ -e /bin/apt ]
 then
 	echo "Setting up config files for Debain-Based Distros"
@@ -13,9 +17,8 @@ then
 elif [ -e /bin/pacman.d ]
 then 
 	echo "Setting up config files for Arch-Based Distros"
-fi
-
-# Install necessary dependecies
+	
+# Install necessary dependecies for Arch Linux
 
 #(pacman -S base base-devel git wget htop bspwm 
 #sxhkd neovim polybar ranger redshift dunst)
@@ -23,9 +26,6 @@ fi
 # Check which shell is currently running
 # if [echo $SHELL = /usr/bin/zsh ]...
 
-dots=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
-config_dots=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "dunst" "kitty" "neofetch" "rofi") 
-local_dots=("bin")
 
 if [ -d ~/.config/ ]
 then
@@ -45,23 +45,26 @@ fi
 
 # Symlink files in the dotfiles directory
 
-for files in ""${dots[@]}
+for files in ""${ARCH_DOTFILES[@]}
 do
 	ln -sf ~/dotfiles/$files ~/
 done
 
 # Symlink files within directories in the dotfiles directory
 
-for files in "${config_dots[@]}"
+for files in "${ARCH_CONFIG_DOTFILES[@]}"
 do
 	ln -sf ~/dotfiles/.config/$files ~/.config/
 done
 
 # Symlink files within directories in the .local directory
 
-for files in "${local_dots[@]}"
+for files in "${ARCH_LOCAL_DOTFILES[@]}"
 do 
 	ln -sf ~/dotfiles/.local/$files ~/.local/
 done
 
 echo "Setup Succesful!!!"
+fi
+
+

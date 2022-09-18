@@ -2,10 +2,10 @@
 
 # Debian-Based Distros
 
-GLOBAL_PACKAGES=("nodejs" "neovim" "code" "kitty" "default-jdk" "python3-pip" "neofetch")
+GLOBAL_PACKAGES=("nodejs" "npm" "neovim" "code" "kitty" "default-jdk" "python3-pip" "neofetch")
 REQUIRED_NODE_PACKAGES=("yarn")
 
-DEBIAN_DOTFILES=(".bashrc" ".gitconfig")
+DEBIAN_DOTFILES=(".bashrc")
 DEBIAN_CONFIG_DOTFILES=("nvim" "kitty" "neofetch")
 
 ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
@@ -53,7 +53,8 @@ then
 	done
 
 #Install Miscallenous
-
+	
+	sudo npm install --global yarn
 	sudo pip3 install -U Commitizen
 
 
@@ -61,16 +62,16 @@ then
 
 # Symlink files within dotfiles dir to $USER dir
 
-	for files in ${DEBIAN_DOTFILES[@]}
+	for FILES in ${DEBIAN_DOTFILES[@]}
 	do
-		ln -sf ~/dotfiles/$files ~/
+		ln -sf ~/dotfiles/$FILES ~/
 	done
 
 # Symlink config files within dotfiles dir to .config dir
 
-	for files in ${DEBIAN_CONFIG_DOTFILES[@]}
+	for FILES in ${DEBIAN_CONFIG_DOTFILES[@]}
 	do
-		ln -sf ~/dotfiles/.config/$files ~/.config/
+		ln -sf ~/dotfiles/.config/$FILES/ ~/.config/$FILES/
 	done
 
 

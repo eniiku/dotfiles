@@ -64,14 +64,14 @@ then
 
 	for FILES in ${DEBIAN_DOTFILES[@]}
 	do
-		ln -sf ~/dotfiles/$FILES ~/
+		ln -sf ~/Documents/dotfiles/$FILES ~/
 	done
 
 # Symlink config files within dotfiles dir to .config dir
 
 	for FILES in ${DEBIAN_CONFIG_DOTFILES[@]}
 	do
-		ln -sf ~/dotfiles/.config/$FILES/ ~/.config/$FILES/
+		ln -sf ~/Documents/dotfiles/.config/$FILES ~/.config
 	done
 
 

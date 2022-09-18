@@ -2,8 +2,11 @@
 
 # Debian-Based Distros
 
-GLOBAL_PACKAGES=("nodejs" "neovim" "code" "kitty" "default-jdk" "python3-pip")
+GLOBAL_PACKAGES=("nodejs" "neovim" "code" "kitty" "default-jdk" "python3-pip" "neofetch")
 REQUIRED_NODE_PACKAGES=("yarn")
+
+DEBIAN_DOTFILES=(".bashrc" ".gitconfig")
+DEBIAN_CONFIG_DOTFILES=("nvim" "kitty" "neofetch")
 
 ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
 ARCH_CONFIG_DOTFILES=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "dunst" "kitty" "neofetch" "rofi")
@@ -52,9 +55,39 @@ then
 
 #Install Miscallenous
 
-sudo pip3 install -U Commitizen
+	sudo pip3 install -U Commitizen
 
+
+## Symlink Debain Specific config dotfiles
+
+# Symlink files within dotfiles dir to $USER dir
+
+	for files in ""${DEBIAN_DOTFILES[@]}
+	do
+		ln -sf ~/dotfiles/$files ~/
+	done
+
+# Symlink config files within dotfiles dir to .config dir
+
+	for files in "${DEBIAN_CONFIG_DOTFILES[@]}"
+	do
+		ln -sf ~/dotfiles/.config/$files ~/.config/
+	done
+
+
+# Success message
+
+	if ["$?" -eq "0"]
+	then
 	
+		exit 0
+	else
+		echo "Something seems to be wrong..."
+		echo "Exiting Setup..."
+		exit 1
+	fi
+	
+	exit 0
 elif [ -e /bin/pacman.d ]
 then 
 	echo "Setting up config files for Arch-Based Distros"

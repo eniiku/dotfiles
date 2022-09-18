@@ -2,7 +2,7 @@
 
 # Debian-Based Distros
 
-REQUIRED_PACKAGES=("nodejs" "nvim")
+GLOBAL_PACKAGES=("nodejs" "neovim" "code" "kitty" "default-jdk" "python3-pip")
 REQUIRED_NODE_PACKAGES=("yarn")
 
 ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
@@ -24,12 +24,36 @@ function check_internet_connection() {
 	fi
 }
 
+
 check_internet_connection
+
+# Determine Current Distro
 
 if [ -e /bin/apt ]
 then
 	echo "Setting up config files for Debain-Based Distros"
-	#for FILES in "${REQUIRED_PACKAGES[@]}"
+	sudo apt update
+	
+#Install main packages on Debian-based Distros
+
+	for PKGS in ${GLOBAL_PACKAGES[@]}
+	do
+		sudo apt install $PKGS
+		echo "Installing ${PKGS}..."
+	done
+	
+#Install Node specific packages on Debian-based Distros
+
+	for PKGS in ${REQUIRED_NODE_PACKAGES[@]}
+	do
+		sudo apt install $PKGS
+		echo "Installing ${PKGS}..."
+	done
+
+#Install Miscallenous
+
+sudo pip3 install -U Commitizen
+
 	
 elif [ -e /bin/pacman.d ]
 then 

@@ -13,13 +13,12 @@ ARCH_CONFIG_DOTFILES=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "duns
 ARCH_LOCAL_DOTFILES=("bin")
 
 function check_internet_connection() {
-	ping -c 3 google.com
-	
-	if ["$?" -eq "0"]
+	ping -c 1 google.com
+	  
+	if [ "$?" -eq "0" ]
 	then
-		echo "Confirmed Internet access\!"
+		echo "Confirmed Internet access!"
 		echo "Proceeding with configuration..."
-		exit 0
 	else
 		echo "You don't seem to have a stable interet connection"
 		echo "Exiting configuration..."
@@ -62,14 +61,14 @@ then
 
 # Symlink files within dotfiles dir to $USER dir
 
-	for files in ""${DEBIAN_DOTFILES[@]}
+	for files in ${DEBIAN_DOTFILES[@]}
 	do
 		ln -sf ~/dotfiles/$files ~/
 	done
 
 # Symlink config files within dotfiles dir to .config dir
 
-	for files in "${DEBIAN_CONFIG_DOTFILES[@]}"
+	for files in ${DEBIAN_CONFIG_DOTFILES[@]}
 	do
 		ln -sf ~/dotfiles/.config/$files ~/.config/
 	done
@@ -77,9 +76,9 @@ then
 
 # Success message
 
-	if ["$?" -eq "0"]
+	if [ "$?" -eq "0" ]
 	then
-	
+		echo "You are all set!"
 		exit 0
 	else
 		echo "Something seems to be wrong..."
@@ -87,7 +86,6 @@ then
 		exit 1
 	fi
 	
-	exit 0
 elif [ -e /bin/pacman.d ]
 then 
 	echo "Setting up config files for Arch-Based Distros"

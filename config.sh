@@ -10,7 +10,7 @@ DEBIAN_CONFIG_DOTFILES=("nvim" "kitty" "neofetch")
 
 #ARCH_DOTFILES=(".xinitrc" ".screenlayout" ".zshrc" ".zprofile" ".bash_profile" ".gitconfig")
 #ARCH_CONFIG_DOTFILES=("bspwm" "sxhkd" "nvim" "polybar" "ranger" "redshift" "dunst" "kitty" "neofetch" "rofi")
-ARCH_CONFIG_DOTFILES=("i3")
+ARCH_CONFIG_DOTFILES=("i3" "i3status")
 #ARCH_LOCAL_DOTFILES=("bin")
 
 function check_internet_connection() {

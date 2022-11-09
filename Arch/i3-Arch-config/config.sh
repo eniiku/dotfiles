@@ -1,7 +1,7 @@
 #!/bin/bash
 
 I3_DOTFILES=(".zshrc" ".gitconfig")
-I3_CONFIG_DOTFILES=("i3" "i3status" "kitty" "polybar")
+I3_CONFIG_DOTFILES=("i3" "i3status" "kitty" "polybar" "nvim")
 
 function check_internet_connection() {
 	ping -c 1 google.com

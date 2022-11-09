@@ -35,4 +35,9 @@ packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
  
   use 'glepnir/lspsaga.nvim' -- LSP UIs
+
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a lanuage
+  -- server to inject LSP diagnostics, code actions, and more via Lua
+  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in
+
 end)

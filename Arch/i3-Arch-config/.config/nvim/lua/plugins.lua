@@ -40,4 +40,7 @@ packer.startup(function(use)
   -- server to inject LSP diagnostics, code actions, and more via Lua
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in
 
+  use 'lewis6991/gitsigns.nvim'
+  use 'dinhhuy258/git.nvim' -- For git blame & browse
+
 end)

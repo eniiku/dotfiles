@@ -8,5 +8,8 @@ vim.cmd [[packadd packer.nvim]]
 
 packer.startup(function(use)
 	use 'wbthomason/packer.nvim'
-	-- plugins go here
+  use {
+    'svrana/neosolarized.nvim',
+    requires = { 'tjdevries/colorbuddy.nvim' }
+  }
 end)

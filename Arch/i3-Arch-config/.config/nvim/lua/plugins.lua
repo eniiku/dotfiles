@@ -13,4 +13,5 @@ packer.startup(function(use)
     requires = { 'tjdevries/colorbuddy.nvim' }
   }
   use 'nvim-lualine/lualine.nvim' -- Statusline
+   use 'neovim/nvim-lspconfig' -- LSP
 end)

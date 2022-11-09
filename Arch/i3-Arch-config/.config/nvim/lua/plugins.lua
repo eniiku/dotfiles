@@ -33,4 +33,6 @@ packer.startup(function(use)
   use 'akinsho/nvim-bufferline.lua'
 
   use 'norcalli/nvim-colorizer.lua'
+ 
+  use 'glepnir/lspsaga.nvim' -- LSP UIs
 end)

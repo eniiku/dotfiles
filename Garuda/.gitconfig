@@ -1,0 +1,12 @@
+[user]
+	email = 112134400+eniiku@users.noreply.github.com
+	name = David Enikuomehin
+[init]
+	defaultBranch = main
+[color]
+	ui = auto
+[pull]
+	rebase = false
+[core]
+	excludesfile = /home/enikucaches/.gitignore_global
+	editor = nvim
